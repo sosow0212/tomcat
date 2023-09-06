@@ -155,7 +155,7 @@ public class IdentityInputFilter implements InputFilter, ApplicationBufferHandle
                     // https://httpd.apache.org/docs/2.0/misc/fin_wait_2.html#appendix
                     throw new IOException(sm.getString("inputFilter.maxSwallow"));
                 }
-            } else { // errors are handled higher up.
+            } else { // Errors are handled higher up.
                 remaining = 0;
             }
         }

@@ -193,13 +193,13 @@ public class ChunkedInputFilter implements InputFilter, ApplicationBufferHandler
             }
             readChunk.position(readChunk.position() + remaining);
             remaining = 0;
-            //we need a CRLF
+            // We need a CRLF
             if ((readChunk.position() + 1) >= readChunk.limit()) {
-                //if we call parseCRLF we overrun the buffer here
-                //so we defer it to the next call BZ 11117
+                // If we call parseCRLF we overrun the buffer here
+                // so we defer it to the next call BZ 11117
                 needCRLFParse = true;
             } else {
-                parseCRLF(false); //parse the CRLF immediately
+                parseCRLF(false); // Parse the CRLF immediately
             }
         }
 
@@ -351,14 +351,14 @@ public class ChunkedInputFilter implements InputFilter, ApplicationBufferHandler
                 extension = true;
                 extensionSize++;
             } else if (!extension) {
-                //don't read data after the trailer
+                // Don't read data after the trailer
                 int charValue = HexUtils.getDec(chr);
                 if (charValue != -1 && readDigit < 8) {
                     readDigit++;
                     result = (result << 4) | charValue;
                 } else {
-                    //we shouldn't allow invalid, non hex characters
-                    //in the chunked header
+                    // We shouldn't allow invalid, non hex characters
+                    // in the chunked header
                     return false;
                 }
             } else {

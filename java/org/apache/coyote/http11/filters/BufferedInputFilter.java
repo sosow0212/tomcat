@@ -81,7 +81,7 @@ public class BufferedInputFilter implements InputFilter, ApplicationBufferHandle
      */
     @Override
     public void setRequest(Request request) {
-        // save off the Request body
+        // Save off the Request body
         try {
             if (buffered.getLimit() == 0) {
                 // Special case - ignore (swallow) body. Do so within a limit.
