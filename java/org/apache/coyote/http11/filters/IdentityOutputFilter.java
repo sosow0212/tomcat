@@ -86,7 +86,6 @@ public class IdentityOutputFilter implements OutputFilter {
         }
 
         return result;
-
     }
 
 

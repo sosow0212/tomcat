@@ -163,6 +163,4 @@ public class GzipOutputFilter implements OutputFilter {
         @Override
         public void close() throws IOException {/*NOOP*/}
     }
-
-
 }
